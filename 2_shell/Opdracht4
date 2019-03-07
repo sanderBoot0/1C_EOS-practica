@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for filename in `find ${1}`; do
+    touch ${filename}.txt;
+    if ${2} $filename; then  
+        echo "Command \"${2}\" Succeeded" > ${filename}.txt;
+    else
+        echo "Command \"${2}\" Failed" > ${filename}.txt;
+    fi
+done
